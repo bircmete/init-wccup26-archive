@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>杂志专题 · 世界杯回响</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #fcf8f2;
+            font-family: 'Georgia', 'Times New Roman', 'Songti SC', 'SimSun', serif;
+            color: #2c241a;
+            line-height: 1.7;
+            padding: 2rem 1.5rem;
+        }
+
+        .container {
+            max-width: 820px;
+            margin: 0 auto;
+            background-color: #fffcf7;
+            padding: 2.8rem 2.2rem;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.05);
+            border-radius: 4px;
+        }
+
+        /* ——— hero 横幅 ——— */
+        .hero {
+            border-bottom: 1px solid #e3d9ce;
+            padding-bottom: 2rem;
+            margin-bottom: 2.2rem;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: #dccdc0;
+            color: #3a2e23;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            padding: 0.2rem 1rem;
+            border-radius: 30px;
+            align-self: flex-start;
+            margin-bottom: 1.2rem;
+            text-transform: uppercase;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .hero h1 {
+            font-size: 2.6rem;
+            font-weight: 400;
+            letter-spacing: 2px;
+            line-height: 1.2;
+            color: #1f1812;
+        }
+
+        .hero h1 small {
+            display: block;
+            font-size: 1rem;
+            font-weight: 300;
+            color: #7d6f60;
+            margin-top: 0.8rem;
+            letter-spacing: 1px;
+            border-left: 3px solid #c2b1a0;
+            padding-left: 1rem;
+        }
+
+        .hero-meta {
+            margin-top: 1rem;
+            font-size: 0.85rem;
+            color: #978575;
+            border-top: 1px dashed #e1d5c8;
+            padding-top: 0.8rem;
+        }
+
+        /* ——— 正文排版 ——— */
+        .intro p {
+            margin-bottom: 1.6rem;
+            text-indent: 2em;
+            font-size: 1.1rem;
+        }
+
+        .intro p:first-of-type {
+            text-indent: 0;
+            font-style: italic;
+            color: #4b3f33;
+        }
+
+        .intro a {
+            color: #9b6f4b;
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-decoration-thickness: 1px;
+            text-decoration-color: #cbb6a4;
+            transition: color 0.2s;
+        }
+
+        .intro a:hover {
+            color: #4d2d1b;
+            text-decoration-color: #4d2d1b;
+        }
+
+        /* ——— 引用 / 提示框 ——— */
+        .pull-quote {
+            margin: 2rem 0 2rem 2.5rem;
+            padding: 0.8rem 1.5rem;
+            border-left: 4px solid #b8a18b;
+            background: #f5eee7;
+            color: #3a2e23;
+            font-size: 1rem;
+            font-style: italic;
+            border-radius: 0 8px 8px 0;
+        }
+
+        .pull-quote cite {
+            display: block;
+            font-size: 0.8rem;
+            margin-top: 0.6rem;
+            color: #887a6b;
+            font-style: normal;
+        }
+
+        .insight-box {
+            background: #f2ebe1;
+            padding: 1.4rem 1.8rem;
+            margin: 2rem 0;
+            border-radius: 12px;
+            border: 1px solid #e1d3c4;
+            font-size: 0.95rem;
+        }
+
+        .insight-box strong {
+            color: #4f3c2b;
+            font-weight: 600;
+        }
+
+        /* ——— 三个自然段式介绍 ——— */
+        .feature-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 1.8rem;
+            margin: 2rem 0 1.2rem;
+        }
+
+        .feature-item {
+            border-bottom: 1px solid #ede4d9;
+            padding-bottom: 1.2rem;
+        }
+
+        .feature-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .feature-item h3 {
+            font-size: 1.2rem;
+            font-weight: 400;
+            color: #3d3024;
+            margin-bottom: 0.4rem;
+            letter-spacing: 1px;
+        }
+
+        .feature-item h3 span {
+            background: #e2d4c6;
+            padding: 0 0.6rem;
+            margin-right: 0.5rem;
+            font-size: 0.75rem;
+            border-radius: 20px;
+            color: #2d2219;
+        }
+
+        .feature-item p {
+            color: #4d4136;
+            font-size: 1rem;
+            text-indent: 2em;
+        }
+
+        /* ——— 背景说明段落 ——— */
+        .background-note {
+            margin: 2.2rem 0 1.8rem;
+            padding: 1.5rem 1.8rem;
+            background: #f7f1ea;
+            border-radius: 20px 4px 20px 4px;
+            font-size: 0.95rem;
+            position: relative;
+        }
+
+        .background-note::before {
+            content: "📌";
+            position: absolute;
+            top: -0.6rem;
+            left: 1.2rem;
+            font-size: 1.4rem;
+        }
+
+        .background-note p {
+            text-indent: 2em;
+            margin-bottom: 0.8rem;
+        }
+
+        .background-note p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ——— 尾页访问提示 ——— */
+        .footer-visit {
+            margin-top: 3rem;
+            padding-top: 1.8rem;
+            border-top: 1px solid #dccfc2;
+            text-align: center;
+            font-size: 0.95rem;
+            color: #5f5042;
+        }
+
+        .footer-visit p {
+            margin-bottom: 0.6rem;
+        }
+
+        .footer-visit a {
+            color: #7a5c42;
+            text-decoration: underline;
+            text-underline-offset: 4px;
+            font-weight: normal;
+        }
+
+        .footer-visit a:hover {
+            color: #3b2a1c;
+        }
+
+        .footer-visit .signature {
+            font-size: 0.8rem;
+            color: #b9a99a;
+            margin-top: 1.2rem;
+            letter-spacing: 1px;
+        }
+
+        /* ——— 响应式 ——— */
+        @media (max-width: 600px) {
+            body {
+                padding: 1rem 0.8rem;
+            }
+            .container {
+                padding: 1.8rem 1.2rem;
+            }
+            .hero h1 {
+                font-size: 2rem;
+            }
+            .hero h1 small {
+                font-size: 0.85rem;
+            }
+            .pull-quote {
+                margin-left: 0.8rem;
+                margin-right: 0.8rem;
+                padding: 0.6rem 1rem;
+            }
+            .feature-item p {
+                text-indent: 1.5em;
+            }
+            .intro p {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 420px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+            .background-note {
+                padding: 1rem 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- hero 横幅 -->
+        <header class="hero">
+            <span class="hero-badge">专题 · 深度</span>
+            <h1>
+                球场之外的回响
+                <small>当世界杯成为一种共同的语言</small>
+            </h1>
+            <div class="hero-meta">2026 · 视野 · 四年的刻度</div>
+        </header>
+
+        <!-- 背景说明 + 三段自然介绍 混合在正文中 -->
+        <section class="intro">
+            <p>
+                每届世界杯都是一次短暂而炽热的相遇。三十天里，不同时区、不同肤色的人们共享同一片绿茵的呼吸。它不只是竞技——在体育场的灯光熄灭之后，那些呐喊、眼泪与拥抱，依然长久地留在大街小巷的对话里。
+            </p>
+
+            <!-- 引用块 -->
+            <div class="pull-quote">
+                “足球是二十二个人追着一颗球跑九十分钟，最后德国人赢的游戏。” —— 但世界杯试图告诉我们，赢并不是唯一的故事。
+                <cite>—— 来自某位球迷的散场笔记</cite>
+            </div>
+
+            <p>
+                从马拉卡纳的震耳欲聋，到卢日尼基的雨中谢幕，每一届赛事都悄然改变着人们对世界的想象。我们谈论战术、巨星与冷门，但更深处，世界杯映射出地域文化、民族情感以及跨越国界的共同记忆。它像一面棱镜，将宏大叙事折射成每个人心中不同的光。
+            </p>
+        </section>
+
+        <!-- 三个自然介绍段落：特点/场景/感悟 -->
+        <div class="feature-grid">
+            <div class="feature-item">
+                <h3><span>01</span> 四年 · 节律</h3>
+                <p>
+                    世界杯以四年为周期，标记着生活的章节。有人从少年看到中年，有人从单身看到儿女绕膝。这个循环本身就成为一代人的时间坐标。它不强求你热爱足球，但只要你愿意，总能在某次传球、某次扑救里，看见一种久违的纯粹。
+                </p>
+            </div>
+            <div class="feature-item">
+                <h3><span>02</span> 城市 · 舞台</h3>
+                <p>
+                    主办城市在短短一个月里变成世界的客厅。街头巷尾的旗帜、深夜亮着灯的酒吧、不同语言的欢呼混在一起——那种混杂而热烈的氛围，是任何其他赛事都难以复制的。即使你不在现场，也能从屏幕里闻到烤肉、雨和草皮混合的气味。
+                </p>
+            </div>
+            <div class="feature-item">
+                <h3><span>03</span> 记忆 · 容器</h3>
+                <p>
+                    我们记住的往往不是比分，而是某个瞬间：一个少年的眼泪，一位老将的告别，一群不相识的人因为一粒进球而拥抱。世界杯就像一个巨大的容器，装满了这些无法被数据量化的碎片。它们比任何奖杯都更持久。
+                </p>
+            </div>
+        </div>
+
+        <!-- 背景说明段落（作为补充说明） -->
+        <div class="background-note">
+            <p>
+                2026年的赛事正沿着美洲大陆的脉络铺展。三个国家、十六座城市，将共同编织下一章。在赛程表与抽签结果之外，更值得留意的是那些被镜头忽略的角落：社区里临时架起的投影幕布，老球场旁的小吃摊，孩子们用粉笔在地上画出的球门。
+            </p>
+            <p>
+                这些看似微小的场景，才是世界杯真正扎根的地方。它们提醒我们：无论赛事多么宏大，它的起点和终点，始终是人们聚在一起，为同一件事心跳加速的瞬间。
+            </p>
+        </div>
+
+        <!-- FAQ 摘要风格段落（以提问形式引出） -->
+        <div class="insight-box">
+            <strong>❓ 世界杯为何值得反复凝视？</strong>
+            <p style="margin-top: 0.6rem; text-indent: 2em;">
+                因为它从不重复自己。每一届都有新的面孔、新的剧本、新的遗憾。它像一部没有编剧的连续剧，而我们都是临时的观众与参与者。你无需精通越位规则，也能感受到九十分钟里浓缩的喜怒哀乐——这或许就是它最朴素的力量。
+            </p>
+        </div>
+
+        <!-- 尾页访问提示 -->
+        <footer class="footer-visit">
+            <p>
+                如果你想了解更多关于赛程、历史与人文故事的细节，可以前往
+                <a href="https://init-wccup26.com">世界杯</a> 专题页面。
+                那里没有夸张的标题，只有一些安静的梳理与记录。
+            </p>
+            <p style="font-size: 0.9rem; color: #8f7d6b;">
+                我们相信，好的内容值得慢慢阅读。
+            </p>
+            <div class="signature">—— 杂志编辑室 · 2026 春</div>
+        </footer>
+    </div>
+</body>
+</html>
